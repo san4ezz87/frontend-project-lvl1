@@ -1,8 +1,13 @@
-import readlineSync from 'readline-sync';
+import readline from 'readline';
 
 export default () => {
-  console.log('Welcome to the Brain Games!');
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
 
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
+  rl.question('May I have your name? ', (name) => {
+    console.log(`Hello, ${name}!`);
+    rl.close();
+  });
 };
