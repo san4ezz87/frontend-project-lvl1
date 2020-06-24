@@ -4,3 +4,7 @@
 ## brain-even
 
 [![asciicast](https://asciinema.org/a/4PDLhhoMmYufS5AMaQWzcgzSJ.svg)](https://asciinema.org/a/4PDLhhoMmYufS5AMaQWzcgzSJ)
+
+## brain-calc
+
+[![asciicast](https://asciinema.org/a/zc7jIqVtIK1JzGRrEMJsAZvpI.svg)](https://asciinema.org/a/zc7jIqVtIK1JzGRrEMJsAZvpI)
