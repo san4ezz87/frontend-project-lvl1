@@ -88,4 +88,4 @@ export const gameEngine = (gameRulesText, buildQuestionExpr) => {
       rl.prompt();
     });
   });
-}
+};
