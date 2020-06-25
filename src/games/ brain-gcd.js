@@ -7,7 +7,6 @@ const gameRulesText = 'Find the greatest common divisor of given numbers.';
 
 
 const buildQuestionExpr = () => {
-
   const findAllDivisors = (num) => {
     const minNum = 1;
     let resNum = num;
