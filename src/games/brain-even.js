@@ -8,11 +8,11 @@ const gameRulesText = `Answer ${getStyledStr('"yes"', ['red'])} ${getStyledStr('
 
 const buildQuestionExpr = () => {
   const evalCorrectAnswer = (num) => (num % 2 === 0 ? 'yes' : 'no');
-  const questionBudy = getRandomInt(1, 100);
-  const corrAnswer = evalCorrectAnswer(questionBudy);
+  const question = getRandomInt(1, 100);
+  const corrAnswer = evalCorrectAnswer(question);
 
   return {
-    questionBudy,
+    question,
     corrAnswer,
   };
 };

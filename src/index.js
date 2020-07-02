@@ -50,9 +50,9 @@ export const gameEngine = (gameRulesText, buildQuestionExpr) => {
   console.log(gameRulesText);
 
   while (true) {
-    const { questionBudy, corrAnswer } = buildQuestionExpr();
+    const { question, corrAnswer } = buildQuestionExpr();
 
-    const userAnswer = readlineSync.question(questionBuild(questionBudy), {
+    const userAnswer = readlineSync.question(questionBuild(question), {
       hideEchoBack: true,
       mask: '',
     });

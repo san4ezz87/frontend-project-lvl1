@@ -52,10 +52,10 @@ const buildQuestionExpr = () => {
   const second = getRandomInt(1, 20);
 
   const corrAnswer = evalCorrectAnswer(first, second);
-  const questionBudy = `${first} ${second}`;
+  const question = `${first} ${second}`;
 
   return {
-    questionBudy,
+    question,
     corrAnswer: corrAnswer.toString(),
   };
 };

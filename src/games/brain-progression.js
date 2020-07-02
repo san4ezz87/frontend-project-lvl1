@@ -22,10 +22,10 @@ const buildQuestionExpr = () => {
   }
 
   const corrAnswer = progressionRow.splice(numberPosition, 1, '..');
-  const questionBudy = progressionRow.join(' ');
+  const question = progressionRow.join(' ');
 
   return {
-    questionBudy,
+    question,
     corrAnswer: corrAnswer.toString(),
   };
 };

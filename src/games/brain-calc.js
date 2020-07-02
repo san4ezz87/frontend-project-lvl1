@@ -22,10 +22,10 @@ const buildQuestionExpr = () => {
   const secondNum = getRandomInt(1, 10);
   const operationNum = getRandomInt(1, 3);
 
-  const questionBudy = `${fistNum} ${operationSymbl[operationNum]} ${secondNum}`;
+  const question = `${fistNum} ${operationSymbl[operationNum]} ${secondNum}`;
   const corrAnswer = (operations[operationNum](fistNum, secondNum));
   return {
-    questionBudy,
+    question,
     corrAnswer: corrAnswer.toString(),
   };
 };
