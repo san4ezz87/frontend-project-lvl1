@@ -1,8 +1,11 @@
 import {
-  getStyledStr,
-  getRandomInt,
   gameEngine,
 } from '../index.js';
+
+import {
+  getStyledStr,
+  getRandomInt,
+} from '../utils/utils.js';
 
 const gameRulesText = `What number is missing ${getStyledStr('in', ['bold'])} the progression?`;
 

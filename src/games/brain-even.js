@@ -1,8 +1,11 @@
 import {
-  getStyledStr,
-  getRandomInt,
   gameEngine,
 } from '../index.js';
+
+import {
+  getStyledStr,
+  getRandomInt,
+} from '../utils/utils.js';
 
 const gameRulesText = `Answer ${getStyledStr('"yes"', ['red'])} ${getStyledStr('if', ['bold'])} the number is even, otherwise answer ${getStyledStr('"no"', ['red'])}.`;
 
