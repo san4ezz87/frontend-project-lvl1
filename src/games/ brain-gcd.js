@@ -63,8 +63,8 @@ const buildQuestionExpr = () => {
   };
 };
 
-const brainGcd = () => {
+const runBrainGcd = () => {
   gameEngine(gameRulesText, buildQuestionExpr);
 };
 
-export default brainGcd;
+export default runBrainGcd;

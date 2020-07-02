@@ -21,8 +21,8 @@ const buildQuestionExpr = () => {
 };
 
 
-const brainEven = () => {
+const runBrainEven = () => {
   gameEngine(gameRulesText, buildQuestionExpr);
 };
 
-export default brainEven;
+export default runBrainEven;

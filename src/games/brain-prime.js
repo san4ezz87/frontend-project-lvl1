@@ -23,8 +23,8 @@ const buildQuestionExpr = () => {
 };
 
 
-const brainPrime = () => {
+const runBrainPrime = () => {
   gameEngine(gameRulesText, buildQuestionExpr);
 };
 
-export default brainPrime;
+export default runBrainPrime;

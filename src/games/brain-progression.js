@@ -34,8 +34,8 @@ const buildQuestionExpr = () => {
 };
 
 
-const brainProgression = () => {
+const runBrainProgression = () => {
   gameEngine(gameRulesText, buildQuestionExpr);
 };
 
-export default brainProgression;
+export default runBrainProgression;

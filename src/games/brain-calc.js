@@ -33,8 +33,8 @@ const buildQuestionExpr = () => {
   };
 };
 
-const brainCalc = () => {
+const runBrainCalc = () => {
   gameEngine(gameRulesText, buildQuestionExpr);
 };
 
-export default brainCalc;
+export default runBrainCalc;
