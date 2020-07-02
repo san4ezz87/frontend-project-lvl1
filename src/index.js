@@ -30,7 +30,7 @@ export const gameEngine = (gameRulesText, buildQuestionExpr) => {
   const answerCounter = countRightAnswer(3);
   console.log(gameRulesText);
 
-  while (true) {
+  while (!answerCounter.isWin()) {
     const { question, corrAnswer } = buildQuestionExpr();
 
     const userAnswer = readlineSync.question(questionBuild(question), {
