@@ -1,4 +1,4 @@
-import readline from 'readline';
+import readlineSync from 'readline-sync';
 
 export const hellowText = 'Welcome to the Brain Games!';
 export const askNameText = 'May I have your name? ';
@@ -43,49 +43,35 @@ export const questionBuild = (question) => `Question: ${question}`;
 export const wrongAnswerBuild = (answer, correctAnswer, name) => `${getStyledStr(`"${answer}"`, ['red'])} is wrong answer ;(. Correct answer was ${getStyledStr(`"${correctAnswer}"`, ['red'])}.\nLet ${getStyledStr(`'s try again, ${name}`, ['red'])}!`;
 
 export const gameEngine = (gameRulesText, buildQuestionExpr) => {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    prompt: 'Your answer: ',
-  });
-
-  let answerData = buildQuestionExpr();
   console.log(hellowText);
+  const userName = readlineSync.question(askNameText);
+  console.log(greetingBuild(userName));
+  const answerCounter = countRightAnswer(3);
+  console.log(gameRulesText);
 
-  rl.question(askNameText, (name) => {
-    const answerCounter = countRightAnswer(3);
-    console.log(greetingBuild(name));
+  while (true) {
+    const answerData = buildQuestionExpr();
 
-    console.log(gameRulesText);
-    console.log(questionBuild(answerData.questionBudy));
-
-    rl.prompt();
-
-    rl.on('line', (input) => {
-      const answer = input.trim();
-
-      if (!answerData.isAnswerCorrect(answer)) {
-        console.log(wrongAnswerBuild(answer, answerData.corrAnswer, name));
-        rl.close();
-        return;
-      }
-
-      if (answerData.isAnswerCorrect(answer)) {
-        readline.moveCursor(process.stdout, 0, -1);
-        console.log(`Your answer: ${getStyledStr(answer, ['cyan'])}`);
-        answerCounter.incrimentCorret();
-        console.log('Correct!');
-      }
-
-      if (answerCounter.isWin()) {
-        console.log(`Congratulations, ${name}!`);
-        rl.close();
-        return;
-      }
-
-      answerData = buildQuestionExpr();
-      console.log(questionBuild(answerData.questionBudy));
-      rl.prompt();
+    const userAnswer = readlineSync.question(questionBuild(answerData.questionBudy), {
+      hideEchoBack: true,
+      mask: '',
     });
-  });
+    const answer = userAnswer.trim();
+
+    if (!answerData.isAnswerCorrect(answer)) {
+      console.log(wrongAnswerBuild(answer, answerData.corrAnswer, userName));
+      return;
+    }
+
+    if (answerData.isAnswerCorrect(answer)) {
+      console.log(`Your answer: ${getStyledStr(answer, ['cyan'])}`);
+      answerCounter.incrimentCorret();
+      console.log('Correct!');
+    }
+
+    if (answerCounter.isWin()) {
+      console.log(`Congratulations, ${userName}!`);
+      return;
+    }
+  }
 };
