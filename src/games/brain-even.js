@@ -10,9 +10,9 @@ import {
 const gameRulesText = `Answer ${getStyledStr('"yes"', ['red'])} ${getStyledStr('if', ['bold'])} the number is even, otherwise answer ${getStyledStr('"no"', ['red'])}.`;
 
 const buildQuestionExpr = () => {
-  const evalCorrectAnswer = (num) => (num % 2 === 0 ? 'yes' : 'no');
+  const isEven = (num) => num % 2 === 0;
   const question = getRandomInt(1, 100);
-  const corrAnswer = evalCorrectAnswer(question);
+  const corrAnswer = isEven(question) ? 'yes' : 'no';
 
   return {
     question,
