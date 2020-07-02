@@ -16,6 +16,11 @@
   "bugs": {
     "url": "https://github.com/san4ezz87/frontend-project-lvl1/issues"
   },
+  "keywords": [
+    "brain training",
+    "brain games",
+    "improve your brain"
+  ],
   "bin": {
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
