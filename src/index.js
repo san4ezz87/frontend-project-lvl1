@@ -50,20 +50,20 @@ export const gameEngine = (gameRulesText, buildQuestionExpr) => {
   console.log(gameRulesText);
 
   while (true) {
-    const answerData = buildQuestionExpr();
+    const { questionBudy, corrAnswer } = buildQuestionExpr();
 
-    const userAnswer = readlineSync.question(questionBuild(answerData.questionBudy), {
+    const userAnswer = readlineSync.question(questionBuild(questionBudy), {
       hideEchoBack: true,
       mask: '',
     });
-    const answer = userAnswer.trim();
 
-    if (!answerData.isAnswerCorrect(answer)) {
-      console.log(wrongAnswerBuild(answer, answerData.corrAnswer, userName));
+    const answer = userAnswer.trim();
+    if (answer !== corrAnswer) {
+      console.log(wrongAnswerBuild(answer, corrAnswer, userName));
       return;
     }
 
-    if (answerData.isAnswerCorrect(answer)) {
+    if (corrAnswer) {
       console.log(`Your answer: ${getStyledStr(answer, ['cyan'])}`);
       answerCounter.incrimentCorret();
       console.log('Correct!');

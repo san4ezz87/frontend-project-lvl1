@@ -26,10 +26,7 @@ const buildQuestionExpr = () => {
 
   return {
     questionBudy,
-    corrAnswer,
-    isAnswerCorrect(answer) {
-      return answer === corrAnswer.toString();
-    },
+    corrAnswer: corrAnswer.toString(),
   };
 };
 

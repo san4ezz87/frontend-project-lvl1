@@ -14,9 +14,6 @@ const buildQuestionExpr = () => {
   return {
     questionBudy,
     corrAnswer,
-    isAnswerCorrect(answer) {
-      return answer === corrAnswer;
-    },
   };
 };
 

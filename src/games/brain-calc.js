@@ -26,10 +26,7 @@ const buildQuestionExpr = () => {
   const corrAnswer = (operations[operationNum](fistNum, secondNum));
   return {
     questionBudy,
-    corrAnswer,
-    isAnswerCorrect(answer) {
-      return answer === corrAnswer.toString();
-    },
+    corrAnswer: corrAnswer.toString(),
   };
 };
 
