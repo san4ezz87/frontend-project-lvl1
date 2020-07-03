@@ -17,35 +17,27 @@ export const countRightAnswer = (amountToWin) => {
   };
 };
 
-export const greetingBuild = (name) => `Hello, ${name}!`;
-
-export const questionBuild = (question) => `Question: ${question}`;
-
-export const wrongAnswerBuild = (answer, correctAnswer, name) => `${getStyledStr(`"${answer}"`, ['red'])} is wrong answer ;(. Correct answer was ${getStyledStr(`"${correctAnswer}"`, ['red'])}.\nLet ${getStyledStr(`'s try again, ${name}`, ['red'])}!`;
-
 export const gameEngine = (gameRulesText, buildQuestionExpr) => {
   console.log(hellowText);
   const userName = readlineSync.question(askNameText);
-  console.log(greetingBuild(userName));
+  console.log(`Hello, ${userName}!`);
+
   const answerCounter = countRightAnswer(3);
   console.log(gameRulesText);
 
   while (!answerCounter.isWin()) {
     const { question, corrAnswer } = buildQuestionExpr();
-
-    const userAnswer = readlineSync.question(questionBuild(question), {
-      hideEchoBack: true,
-      mask: '',
-    });
+    console.log(`Question: ${question} `);
+    const userAnswer = readlineSync.question('Your answer: ');
 
     const answer = userAnswer.trim();
     if (answer !== corrAnswer) {
-      console.log(wrongAnswerBuild(answer, corrAnswer, userName));
+      console.log(`${getStyledStr(`"${answer}"`, ['red'])} is wrong answer ;(. Correct answer was ${getStyledStr(`"${corrAnswer}"`, ['red'])}.`);
+      console.log(`Let ${getStyledStr(`'s try again, ${userName}`, ['red'])}!`);
       return;
     }
 
-    if (corrAnswer) {
-      console.log(`Your answer: ${getStyledStr(answer, ['cyan'])}`);
+    if (answer === corrAnswer) {
       answerCounter.incrimentCorret();
       console.log('Correct!');
     }
