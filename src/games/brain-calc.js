@@ -10,24 +10,19 @@ import {
 const gameRulesText = 'What is the result of the expression?';
 
 const operations = {
-  1: (a, b) => a + b,
-  2: (a, b) => a - b,
-  3: (a, b) => a * b,
-};
-
-const operationSymbl = {
-  1: '+',
-  2: '-',
-  3: '*',
+  '+': (a, b) => a + b,
+  '-': (a, b) => a - b,
+  '*': (a, b) => a * b,
 };
 
 const buildQuestionExpr = () => {
   const fistNum = getRandomInt(1, 10);
   const secondNum = getRandomInt(1, 10);
-  const operationNum = getRandomInt(1, 3);
+  const operationNum = getRandomInt(0, 2);
 
-  const question = `${fistNum} ${operationSymbl[operationNum]} ${secondNum}`;
-  const corrAnswer = (operations[operationNum](fistNum, secondNum));
+  const operator = Object.keys(operations)[operationNum];
+  const question = `${fistNum} ${operator} ${secondNum}`;
+  const corrAnswer = (operations[operator](fistNum, secondNum));
   return {
     question,
     corrAnswer: corrAnswer.toString(),
