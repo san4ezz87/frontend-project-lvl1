@@ -11,10 +11,19 @@ const gameRulesText = `Answer ${getStyledStr('"yes"', ['red'])} ${getStyledStr('
 
 
 const buildQuestionExpr = () => {
-  const listPrimeNumber = [2, 3, 5, 7, 11, 13, 17, 19];
-  const evalCorrectAnswer = (num) => (listPrimeNumber.includes(num) ? 'yes' : 'no');
+  const isPrime = (num) => {
+    const sqrtNum = Math.sqrt(num);
+    for (let i = 2; i <= sqrtNum; i += i) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
   const question = getRandomInt(1, 20);
-  const corrAnswer = evalCorrectAnswer(question);
+  const corrAnswer = isPrime(question) ? 'yes' : 'no';
 
   return {
     question,
