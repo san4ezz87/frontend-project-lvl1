@@ -1,9 +1,6 @@
 import readlineSync from 'readline-sync';
 import { getStyledStr } from './utils/utils.js';
 
-export const hellowText = 'Welcome to the Brain Games!';
-export const askNameText = 'May I have your name? ';
-
 export const countRightAnswer = (amountToWin) => {
   let currAmount = 0;
 
@@ -18,8 +15,8 @@ export const countRightAnswer = (amountToWin) => {
 };
 
 export const gameEngine = (gameRulesText, buildQuestionExpr) => {
-  console.log(hellowText);
-  const userName = readlineSync.question(askNameText);
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
   const answerCounter = countRightAnswer(3);
