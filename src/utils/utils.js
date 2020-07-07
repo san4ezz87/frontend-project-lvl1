@@ -1,8 +1,4 @@
-const getRandomInt = (min, max) => {
-  const minRound = Math.ceil(min);
-  const maxRound = Math.floor(max);
-  return Math.floor(Math.random() * (maxRound - minRound + 1)) + min;
-};
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const getStyledStr = (str, fontStyles) => {
   const fontStyle = {
