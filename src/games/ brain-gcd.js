@@ -1,6 +1,4 @@
-import {
-  gameEngine,
-} from '../index.js';
+import gameEngine from '../index.js';
 
 import {
   getRandomInt,

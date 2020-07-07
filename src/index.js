@@ -1,28 +1,16 @@
 import readlineSync from 'readline-sync';
 import { getStyledStr } from './utils/utils.js';
 
-export const countRightAnswer = (amountToWin) => {
-  let currAmount = 0;
-
-  return {
-    incrimentCorret() {
-      currAmount += 1;
-    },
-    isWin() {
-      return currAmount >= amountToWin;
-    },
-  };
-};
-
-export const gameEngine = (gameRulesText, buildQuestionExpr) => {
+const answerToWing = 3;
+export default (gameRulesText, buildQuestionExpr) => {
+  let correctAnswer = 0;
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
-  const answerCounter = countRightAnswer(3);
   console.log(gameRulesText);
 
-  while (!answerCounter.isWin()) {
+  while (answerToWing > correctAnswer) {
     const { question, corrAnswer } = buildQuestionExpr();
     console.log(`Question: ${question} `);
     const userAnswer = readlineSync.question('Your answer: ');
@@ -34,14 +22,9 @@ export const gameEngine = (gameRulesText, buildQuestionExpr) => {
       return;
     }
 
-    if (answer === corrAnswer) {
-      answerCounter.incrimentCorret();
-      console.log('Correct!');
-    }
-
-    if (answerCounter.isWin()) {
-      console.log(`Congratulations, ${userName}!`);
-      return;
-    }
+    correctAnswer += 1;
+    console.log('Correct!');
   }
+
+  console.log(`Congratulations, ${userName}!`);
 };

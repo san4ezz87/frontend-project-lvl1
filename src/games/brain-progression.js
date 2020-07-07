@@ -1,13 +1,10 @@
-import {
-  gameEngine,
-} from '../index.js';
+import gameEngine from '../index.js';
 
 import {
-  getStyledStr,
   getRandomInt,
 } from '../utils/utils.js';
 
-const gameRulesText = `What number is missing ${getStyledStr('in', ['bold'])} the progression?`;
+const gameRulesText = 'What number is missing in the progression?';
 
 const buildQuestionExpr = () => {
   const progressionLength = 10;

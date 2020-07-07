@@ -1,13 +1,10 @@
-import {
-  gameEngine,
-} from '../index.js';
+import gameEngine from '../index.js';
 
 import {
-  getStyledStr,
   getRandomInt,
 } from '../utils/utils.js';
 
-const gameRulesText = `Answer ${getStyledStr('"yes"', ['red'])} ${getStyledStr('if', ['bold'])} given number is prime. Otherwise answer ${getStyledStr('"no"', ['red'])}.`;
+const gameRulesText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 
 const buildQuestionExpr = () => {
