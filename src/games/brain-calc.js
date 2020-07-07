@@ -10,12 +10,13 @@ const operations = {
   '*': (a, b) => a * b,
 };
 
+const operatorList = Object.keys(operations);
+
 const buildQuestionExpr = () => {
   const fistNum = getRandomInt(1, 10);
   const secondNum = getRandomInt(1, 10);
-  const operationNum = getRandomInt(0, 2);
-
-  const operator = Object.keys(operations)[operationNum];
+  const operationNum = getRandomInt(0, operatorList.length);
+  const operator = operatorList[operationNum];
   const question = `${fistNum} ${operator} ${secondNum}`;
   const corrAnswer = (operations[operator](fistNum, secondNum));
   return {
