@@ -3,9 +3,15 @@ import getRandomInt from '../utils/utils.js';
 
 const gameRulesText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const isPrime = (num) => {
-  const sqrtNum = Math.sqrt(num);
-  for (let i = 2; i <= sqrtNum; i += i) {
-    if (num % i === 0) {
+  const smalllerNum = 2;
+  const numAbs = Math.abs(num);
+  if (numAbs < smalllerNum) {
+    return false;
+  }
+
+  const maxDivisor = Math.sqrt(numAbs);
+  for (let i = 2; i <= maxDivisor; i += 1) {
+    if (numAbs % i === 0) {
       return false;
     }
   }
@@ -15,11 +21,11 @@ const isPrime = (num) => {
 
 const buildQuestionExpr = () => {
   const question = getRandomInt(1, 20);
-  const corrAnswer = isPrime(question) ? 'yes' : 'no';
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
   return {
     question,
-    corrAnswer,
+    correctAnswer,
   };
 };
 
