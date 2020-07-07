@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import { getStyledStr } from './utils/utils.js';
 
 const answerToWing = 3;
 export default (gameRulesText, buildQuestionExpr) => {
@@ -17,8 +16,8 @@ export default (gameRulesText, buildQuestionExpr) => {
 
     const answer = userAnswer.trim();
     if (answer !== corrAnswer) {
-      console.log(`${getStyledStr(`"${answer}"`, ['red'])} is wrong answer ;(. Correct answer was ${getStyledStr(`"${corrAnswer}"`, ['red'])}.`);
-      console.log(`Let ${getStyledStr(`'s try again, ${userName}`, ['red'])}!`);
+      console.log(` ${answer} is wrong answer ;(. Correct answer was ${corrAnswer}.`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
 

@@ -1,8 +1,5 @@
 import gameEngine from '../index.js';
-
-import {
-  getRandomInt,
-} from '../utils/utils.js';
+import getRandomInt from '../utils/utils.js';
 
 
 const gameRulesText = 'What is the result of the expression?';

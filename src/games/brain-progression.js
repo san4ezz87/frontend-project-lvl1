@@ -1,16 +1,12 @@
 import gameEngine from '../index.js';
-
-import {
-  getRandomInt,
-} from '../utils/utils.js';
+import getRandomInt from '../utils/utils.js';
 
 const gameRulesText = 'What number is missing in the progression?';
+const progressionLength = 10;
+const numForProgression = 2;
+const progressionMake = (n, num) => n + num;
 
 const buildQuestionExpr = () => {
-  const progressionLength = 10;
-  const numForProgression = 2;
-  const progressionMake = (n, num) => n + num;
-
   const progrssinStart = getRandomInt(1, 3);
   const numberPosition = getRandomInt(1, 9);
   const progressionRow = [progrssinStart];
