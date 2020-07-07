@@ -6,7 +6,7 @@ const progressionLength = 10;
 const numForProgression = 2;
 const progressionMake = (n, num) => n + num;
 
-const buildQuestionExpr = () => {
+const buildRoundData = () => {
   const progrssinStart = getRandomInt(1, 3);
   const numberPosition = getRandomInt(1, 9);
   const progressionRow = [progrssinStart];
@@ -28,7 +28,7 @@ const buildQuestionExpr = () => {
 
 
 const runBrainProgression = () => {
-  gameEngine(gameRulesText, buildQuestionExpr);
+  gameEngine(gameRulesText, buildRoundData);
 };
 
 export default runBrainProgression;

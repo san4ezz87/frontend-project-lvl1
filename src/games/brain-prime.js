@@ -19,7 +19,7 @@ const isPrime = (num) => {
   return true;
 };
 
-const buildQuestionExpr = () => {
+const buildRoundData = () => {
   const question = getRandomInt(1, 20);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
@@ -31,7 +31,7 @@ const buildQuestionExpr = () => {
 
 
 const runBrainPrime = () => {
-  gameEngine(gameRulesText, buildQuestionExpr);
+  gameEngine(gameRulesText, buildRoundData);
 };
 
 export default runBrainPrime;

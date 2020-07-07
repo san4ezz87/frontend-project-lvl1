@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 
 const answerToWing = 3;
-export default (gameRulesText, buildQuestionExpr) => {
+export default (gameRulesText, buildRoundData) => {
   let correctAnswer = 0;
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
@@ -10,7 +10,7 @@ export default (gameRulesText, buildQuestionExpr) => {
   console.log(gameRulesText);
 
   while (answerToWing > correctAnswer) {
-    const { question, corrAnswer } = buildQuestionExpr();
+    const { question, corrAnswer } = buildRoundData();
     console.log(`Question: ${question} `);
     const userAnswer = readlineSync.question('Your answer: ');
 
