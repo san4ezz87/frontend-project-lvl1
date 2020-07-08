@@ -15,13 +15,14 @@ const operatorList = Object.keys(operations);
 const buildRoundData = () => {
   const fistNum = getRandomInt(1, 10);
   const secondNum = getRandomInt(1, 10);
-  const operationNum = getRandomInt(0, operatorList.length);
+  const operationNum = getRandomInt(0, operatorList.length - 1);
+
   const operator = operatorList[operationNum];
   const question = `${fistNum} ${operator} ${secondNum}`;
-  const corrAnswer = (operations[operator](fistNum, secondNum));
+  const correctAnswer = (operations[operator](fistNum, secondNum));
   return {
     question,
-    corrAnswer: corrAnswer.toString(),
+    correctAnswer: correctAnswer.toString(),
   };
 };
 

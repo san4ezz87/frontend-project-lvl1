@@ -4,19 +4,19 @@ import getRandomInt from '../utils/utils.js';
 const gameRulesText = 'Answer "yes" if the number is even, otherwise answer "no".';
 const isEven = (num) => num % 2 === 0;
 
-const buildQuestionExpr = () => {  
+const buildRoundData = () => {
   const question = getRandomInt(1, 100);
-  const corrAnswer = isEven(question) ? 'yes' : 'no';
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
 
   return {
     question,
-    corrAnswer,
+    correctAnswer,
   };
 };
 
 
 const runBrainEven = () => {
-  gameEngine(gameRulesText, buildQuestionExpr);
+  gameEngine(gameRulesText, buildRoundData);
 };
 
 export default runBrainEven;

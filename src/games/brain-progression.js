@@ -17,12 +17,12 @@ const buildRoundData = () => {
     progressionRow.push(newElem);
   }
 
-  const corrAnswer = progressionRow.splice(numberPosition, 1, '..');
+  const correctAnswer = progressionRow.splice(numberPosition, 1, '..');
   const question = progressionRow.join(' ');
 
   return {
     question,
-    corrAnswer: corrAnswer.toString(),
+    correctAnswer: correctAnswer.toString(),
   };
 };
 

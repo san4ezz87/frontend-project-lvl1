@@ -10,8 +10,8 @@ const isPrime = (num) => {
   }
 
   const maxDivisor = Math.sqrt(numAbs);
-  for (let i = 2; i <= maxDivisor; i += 1) {
-    if (numAbs % i === 0) {
+  for (let divisor = 2; divisor <= maxDivisor; divisor += 1) {
+    if (numAbs % divisor === 0) {
       return false;
     }
   }
@@ -22,7 +22,6 @@ const isPrime = (num) => {
 const buildRoundData = () => {
   const question = getRandomInt(1, 20);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
-
   return {
     question,
     correctAnswer,

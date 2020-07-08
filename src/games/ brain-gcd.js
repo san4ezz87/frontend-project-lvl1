@@ -44,21 +44,21 @@ const evalCorrectAnswer = (firstNum, secondNum) => {
   return 1;
 };
 
-const buildQuestionExpr = () => {
+const buildRoundData = () => {
   const first = getRandomInt(1, 20);
   const second = getRandomInt(1, 20);
 
-  const corrAnswer = evalCorrectAnswer(first, second);
+  const correctAnswer = evalCorrectAnswer(first, second);
   const question = `${first} ${second}`;
 
   return {
     question,
-    corrAnswer: corrAnswer.toString(),
+    correctAnswer: correctAnswer.toString(),
   };
 };
 
 const runBrainGcd = () => {
-  gameEngine(gameRulesText, buildQuestionExpr);
+  gameEngine(gameRulesText, buildRoundData);
 };
 
 export default runBrainGcd;
