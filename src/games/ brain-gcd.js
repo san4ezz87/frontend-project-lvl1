@@ -2,44 +2,18 @@ import runGameEngine from '../index.js';
 import getRandomInt from '../utils/utils.js';
 
 const gameRules = 'Find the greatest common divisor of given numbers.';
-const filterDividerTakeNum = (curNum) => (divisor) => (curNum % divisor === 0);
-
-const findAllDivisors = (num) => {
-  const minNum = 1;
-  let resNum = num;
-  const divisorsListForNumber = [];
-  const divisorsList = [2, 3, 4, 5, 6, 7, 8, 9];
-
-  while (minNum !== resNum) {
-    const filterDivider = filterDividerTakeNum(resNum);
-    const [divisorForNum] = divisorsList.filter(filterDivider);
-    if (divisorForNum) {
-      divisorsListForNumber.push(divisorForNum);
-      resNum /= divisorForNum;
-    } else {
-      divisorsListForNumber.push(resNum);
-      resNum /= resNum;
-    }
-  }
-
-  return divisorsListForNumber;
-};
 
 const evalCorrectAnswer = (firstNum, secondNum) => {
-  const firstDividersList = findAllDivisors(firstNum);
-  const secondDividersList = findAllDivisors(secondNum);
-
-  const commonDividersList = firstDividersList.filter((divider) => {
-    const elmentIndex = secondDividersList.indexOf(divider);
-    if (elmentIndex !== -1) {
-      secondDividersList.splice(elmentIndex, 1);
-      return true;
+  if (firstNum === 0 || secondNum === 0) {
+    return Math.max(firstNum, secondNum);
+  }
+  const initDivisor = Math.min(firstNum, secondNum);
+  for (let i = initDivisor; i > 1; i -= 1) {
+    const first = firstNum % i;
+    const second = secondNum % i;
+    if (first === 0 && second === 0) {
+      return i;
     }
-    return false;
-  });
-
-  if (commonDividersList.length) {
-    return commonDividersList.reduce((acc, divvider) => acc * divvider);
   }
   return 1;
 };
