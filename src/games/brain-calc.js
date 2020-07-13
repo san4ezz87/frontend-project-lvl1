@@ -1,4 +1,4 @@
-import gameEngine from '../index.js';
+import runGameEngine from '../index.js';
 import getRandomInt from '../utils/utils.js';
 
 
@@ -27,7 +27,7 @@ const buildRoundData = () => {
 };
 
 const runBrainCalc = () => {
-  gameEngine(gameRules, buildRoundData);
+  runGameEngine(gameRules, buildRoundData);
 };
 
 export default runBrainCalc;
