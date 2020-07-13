@@ -1,7 +1,7 @@
 import gameEngine from '../index.js';
 import getRandomInt from '../utils/utils.js';
 
-const gameRulesText = 'What number is missing in the progression?';
+const gameRules = 'What number is missing in the progression?';
 const progressionLength = 10;
 const numForProgression = 2;
 const progressionMake = (n, num) => n + num;
@@ -28,7 +28,7 @@ const buildRoundData = () => {
 
 
 const runBrainProgression = () => {
-  gameEngine(gameRulesText, buildRoundData);
+  gameEngine(gameRules, buildRoundData);
 };
 
 export default runBrainProgression;

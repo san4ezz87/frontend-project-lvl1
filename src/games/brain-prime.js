@@ -1,7 +1,7 @@
 import gameEngine from '../index.js';
 import getRandomInt from '../utils/utils.js';
 
-const gameRulesText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const isPrime = (num) => {
   const smalllerNum = 2;
   const numAbs = Math.abs(num);
@@ -30,7 +30,7 @@ const buildRoundData = () => {
 
 
 const runBrainPrime = () => {
-  gameEngine(gameRulesText, buildRoundData);
+  gameEngine(gameRules, buildRoundData);
 };
 
 export default runBrainPrime;

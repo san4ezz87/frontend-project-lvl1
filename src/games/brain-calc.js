@@ -2,7 +2,7 @@ import gameEngine from '../index.js';
 import getRandomInt from '../utils/utils.js';
 
 
-const gameRulesText = 'What is the result of the expression?';
+const gameRules = 'What is the result of the expression?';
 
 const operations = {
   '+': (a, b) => a + b,
@@ -27,7 +27,7 @@ const buildRoundData = () => {
 };
 
 const runBrainCalc = () => {
-  gameEngine(gameRulesText, buildRoundData);
+  gameEngine(gameRules, buildRoundData);
 };
 
 export default runBrainCalc;

@@ -1,7 +1,7 @@
 import gameEngine from '../index.js';
 import getRandomInt from '../utils/utils.js';
 
-const gameRulesText = 'Find the greatest common divisor of given numbers.';
+const gameRules = 'Find the greatest common divisor of given numbers.';
 const filterDividerTakeNum = (curNum) => (divisor) => (curNum % divisor === 0);
 
 const findAllDivisors = (num) => {
@@ -58,7 +58,7 @@ const buildRoundData = () => {
 };
 
 const runBrainGcd = () => {
-  gameEngine(gameRulesText, buildRoundData);
+  gameEngine(gameRules, buildRoundData);
 };
 
 export default runBrainGcd;
