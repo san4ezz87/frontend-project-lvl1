@@ -3,7 +3,7 @@ import getRandomInt from '../utils/utils.js';
 
 const gameRules = 'Find the greatest common divisor of given numbers.';
 
-const evalCorrectAnswer = (firstNum, secondNum) => {
+const findGcd = (firstNum, secondNum) => {
   if (firstNum === 0 || secondNum === 0) {
     return Math.max(firstNum, secondNum);
   }
@@ -22,7 +22,7 @@ const buildRoundData = () => {
   const first = getRandomInt(1, 20);
   const second = getRandomInt(1, 20);
 
-  const correctAnswer = evalCorrectAnswer(first, second);
+  const correctAnswer = findGcd(first, second);
   const question = `${first} ${second}`;
 
   return {
