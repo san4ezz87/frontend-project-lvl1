@@ -3,22 +3,28 @@ import getRandomInt from '../utils/utils.js';
 
 const gameRules = 'What number is missing in the progression?';
 const progressionLength = 10;
-const numForProgression = 2;
 const progressionMake = (n, num) => n + num;
 
-const buildRoundData = () => {
-  const progrssinStart = getRandomInt(1, 3);
-  const numberPosition = getRandomInt(1, 9);
-  const progressionRow = [progrssinStart];
-
-  for (let i = 1; i < progressionLength; i += 1) {
-    const prevElem = progressionRow[i - 1];
-    const newElem = progressionMake(prevElem, numForProgression);
-    progressionRow.push(newElem);
+const buildProgression = (start, step, length) => {
+  const progression = [start];
+  for (let i = 1; i < length; i += 1) {
+    const prevElem = progression[i - 1];
+    const newElem = progressionMake(prevElem, step);
+    progression.push(newElem);
   }
 
-  const correctAnswer = progressionRow.splice(numberPosition, 1, '..');
-  const question = progressionRow.join(' ');
+  return progression;
+};
+
+const buildRoundData = () => {
+  const first = getRandomInt(1, 3);
+  const blankPossion = getRandomInt(1, progressionLength - 1);
+  const progressionStep = getRandomInt(1, 3);
+
+  const progression = buildProgression(first, progressionStep, progressionLength);
+
+  const correctAnswer = progression.splice(blankPossion, 1, '..');
+  const question = progression.join(' ');
 
   return {
     question,

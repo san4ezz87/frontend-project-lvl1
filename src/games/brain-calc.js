@@ -10,14 +10,14 @@ const operations = {
   '*': (a, b) => a * b,
 };
 
-const operatorList = Object.keys(operations);
+const operators = Object.keys(operations);
 
 const buildRoundData = () => {
   const fistNum = getRandomInt(1, 10);
   const secondNum = getRandomInt(1, 10);
-  const operationNum = getRandomInt(0, operatorList.length - 1);
+  const operationIndex = getRandomInt(0, operators.length - 1);
 
-  const operator = operatorList[operationNum];
+  const operator = operators[operationIndex];
   const question = `${fistNum} ${operator} ${secondNum}`;
   const correctAnswer = (operations[operator](fistNum, secondNum));
   return {
