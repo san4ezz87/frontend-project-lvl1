@@ -2,14 +2,13 @@ import readlineSync from 'readline-sync';
 
 const answerToWing = 3;
 export default (gameRulesText, buildRoundData) => {
-  let correctAnswerCount = 0;
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
   console.log(gameRulesText);
 
-  while (answerToWing > correctAnswerCount) {
+  for (let correctAnswerCount = 0; correctAnswerCount < answerToWing; correctAnswerCount += 1) {
     const { question, correctAnswer } = buildRoundData();
     console.log(`Question: ${question} `);
     const userAnswer = readlineSync.question('Your answer: ');
@@ -21,9 +20,7 @@ export default (gameRulesText, buildRoundData) => {
       return;
     }
 
-    correctAnswerCount += 1;
     console.log('Correct!');
   }
-
   console.log(`Congratulations, ${userName}!`);
 };
