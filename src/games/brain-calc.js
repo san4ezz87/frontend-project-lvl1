@@ -19,7 +19,7 @@ const buildRoundData = () => {
 
   const operator = operators[operationIndex];
   const question = `${fistNum} ${operator} ${secondNum}`;
-  const correctAnswer = (operations[operator](fistNum, secondNum));
+  const correctAnswer = operations[operator](fistNum, secondNum);
   return {
     question,
     correctAnswer: correctAnswer.toString(),

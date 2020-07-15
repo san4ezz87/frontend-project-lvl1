@@ -21,7 +21,7 @@ const buildRoundData = () => {
   const question = getRandomInt(1, 20);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return {
-    question,
+    question: question.toString(),
     correctAnswer,
   };
 };

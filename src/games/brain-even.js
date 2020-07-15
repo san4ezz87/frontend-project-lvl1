@@ -9,7 +9,7 @@ const buildRoundData = () => {
   const correctAnswer = isEven(question) ? 'yes' : 'no';
 
   return {
-    question,
+    question: question.toString(),
     correctAnswer,
   };
 };

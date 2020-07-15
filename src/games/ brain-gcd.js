@@ -8,11 +8,11 @@ const findGcd = (firstNum, secondNum) => {
     return Math.max(firstNum, secondNum);
   }
   const initDivisor = Math.min(firstNum, secondNum);
-  for (let i = initDivisor; i > 1; i -= 1) {
-    const first = firstNum % i;
-    const second = secondNum % i;
-    if (first === 0 && second === 0) {
-      return i;
+  for (let divisor = initDivisor; divisor > 1; divisor -= 1) {
+    const firstRemainder = firstNum % divisor;
+    const secondRemainder = secondNum % divisor;
+    if (firstRemainder === 0 && secondRemainder === 0) {
+      return divisor;
     }
   }
   return 1;

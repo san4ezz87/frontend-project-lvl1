@@ -3,13 +3,12 @@ import getRandomInt from '../utils/utils.js';
 
 const gameRules = 'What number is missing in the progression?';
 const progressionLength = 10;
-const progressionMake = (n, num) => n + num;
 
 const buildProgression = (start, step, length) => {
   const progression = [start];
   for (let i = 1; i < length; i += 1) {
     const prevElem = progression[i - 1];
-    const newElem = progressionMake(prevElem, step);
+    const newElem = prevElem + step;
     progression.push(newElem);
   }
 
